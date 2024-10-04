@@ -135,6 +135,13 @@ def clues(comp, user):
 # should they be in? Maybe some sort of sequence?
 def game():
   print('Welcome to the guessing game! Think you can outsmart the computer and guess its three secret numbers? Give it your best shot!')
+  print("""Game information:
+        Guess the computer's three secret numbers to win the game!
+        Close: You've guessed a correct number but in the wrong position
+        Match: You've guessed a correct number in the correct position
+        Nope: You haven't guess a numbers correctly\n
+""")
+  # info vad d et sår för
   computer_digits = computer_digit()
   user_guess = guess_input()
 
