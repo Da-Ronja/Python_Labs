@@ -74,4 +74,3 @@ print("Rectangle_area:", rectangle.area(), "\nRectangle_perimeter:", rectangle.p
 
 triangle = Triangle("Triangle", 3, 4, 5)
 print("triangle_area:", triangle.area(), "\ntriangle_perimeter:", triangle.perimeter())
-
