@@ -16,10 +16,10 @@ def show_menu(at_the_zoo):
     while not choise:
         try:
             choise = int(input("Enter your choice: \n"))
-            # if choise not in range(1, len(at_the_zoo) + 2):
-            #     choise = 0
-            #     print("Please enter a valid number")
-            choise = 0 if choise not in range(1, len(at_the_zoo) + 2) else choise or print("Please enter a valid number")
+            if choise not in range(1, len(at_the_zoo) + 2):
+                choise = 0
+                print("Please enter a valid number")
+            # choise = 0 if choise not in range(1, len(at_the_zoo) + 2) else choise or print("Please enter a valid number")
 
         except ValueError:
             print("Please enter a valid number")
