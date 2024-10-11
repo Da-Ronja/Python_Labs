@@ -13,7 +13,7 @@ class Visitor:
         print(f"{self.name} visits {animal.get_name()}")
 
         if animal.energy < 50:
-            print(f"{animal.get_name()} is too tired to interact")
+            print(f"{animal.get_name()} is too tired to interact with {self.name}. Try feeding it")
             # logic for feeding the animal if the visitor wants tp feed
         else:
             print(f"{animal.get_name()} is up and ready to interact")

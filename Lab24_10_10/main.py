@@ -16,9 +16,11 @@ def show_menu(at_the_zoo):
     while not choise:
         try:
             choise = int(input("Enter your choice: \n"))
-            if choise not in range(1, len(at_the_zoo) + 2):
-                choise = 0
-                print("Please enter a valid number")
+            # if choise not in range(1, len(at_the_zoo) + 2):
+            #     choise = 0
+            #     print("Please enter a valid number")
+            choise = 0 if choise not in range(1, len(at_the_zoo) + 2) else choise or print("Please enter a valid number")
+
         except ValueError:
             print("Please enter a valid number")
 
@@ -58,7 +60,12 @@ def main():
                 if not the_lions and not the_elephants and not the_giraffes:
                     print("There are no animals in the zoo, they all died")
                     continue
-                for animal in the_lions + the_elephants + the_giraffes:
+                for animal in the_lions + the_elephants + the_giraffes: 
+                    if animal.energy <= 25:
+                        print(f"{animal.get_name()} is sleeping.")
+                        animal.sleep()
+                        continue
+                    
                     if animal.use_energy():
                         if animal.get_name() in [animal.get_name() for animal in the_lions]:
                             the_lions.remove(animal) 

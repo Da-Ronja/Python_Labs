@@ -9,6 +9,7 @@ class Animal:
         self.name = name
         self.age = age
         self.energy = self.max_energy # set the initial energy level to the maximum value
+        self.food = None
 
     def __str__(self) -> str:
         return f"{self.name} is {self.age} years old and has {self.energy} energy"
@@ -17,18 +18,19 @@ class Animal:
     def eat(self, food):
         pass
     
+    @abstractmethod
+    def make_sound(self):
+        pass
+    
     def sleep(self):
         print(f"{self.name} sleeps peacefully")
         self.energy = self.max_energy
 
-    @abstractmethod
-    def make_sound(self):
-        pass
-
     def use_energy(self, energy_used=10):
         self.energy -= energy_used
         if self.energy <= 0:
-            print(f"{self.name} has run out of energy and dies")
+            print(f"{self.name} is dies")
+            self.energy = 0
             return True
         return False
     
@@ -221,7 +223,7 @@ def go_hunting(killer, prey):
         if killer.agression_level < prey.fear_level:
             print(f"{prey.name} is running away from {killer.name}")
             prey.run()
-            killer.energy -= 5
+            killer.use_energy(5)
         if killer.agression_level == prey.fear_level:
             print(f"{killer.name} and {prey.name} are playing together")
 
@@ -245,6 +247,8 @@ def go_playing(animal1, animal2):
         animal1.run()
     else:
         print(f"{animal1.name} and {animal2.name} are playing together")
+        animal1.use_energy(15)
+        animal2.use_energy(15)
 
 def animal_interaction(two_animals):
     playing_or_hunting = random.choice([True, False])
@@ -254,3 +258,45 @@ def animal_interaction(two_animals):
     else:
         go_hunting(two_animals[0], two_animals[1])
 
+
+a = Lion("Simba", 5)
+b = Elephant("Dumbo", 10)
+
+a.agression_level = 10
+b.fear_level = 10
+
+print(a.energy, b.energy)
+go_playing(a, b)
+
+print(a.energy, b.energy)
+go_playing(a, b)
+
+print(a.energy, b.energy)
+go_playing(a, b)
+
+print(a.energy, b.energy)
+go_playing(a, b)
+
+print(a.energy, b.energy)
+go_playing(a, b)
+
+print(a.energy, b.energy)
+go_playing(a, b)
+
+print(a.energy, b.energy)
+go_playing(a, b)
+
+print(a.energy, b.energy)
+go_playing(a, b)
+
+print(a.energy, b.energy)
+go_playing(a, b)
+
+print(a.energy, b.energy)
+go_playing(a, b)
+
+print(a.energy, b.energy)
+go_playing(a, b)
+
+print(a.energy, b.energy)
+go_playing(a, b)
